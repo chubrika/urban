@@ -1,39 +1,38 @@
+import ScrollHeroSection from '@/components/ScrollHeroSection';
 import CanvasScrollImageSequence from '@/components/CanvasScrollImageSequence';
-import ScrollProgressBar from '@/components/ScrollProgressBar';
 
 export default function Home() {
-  // Generate image sequence for 30 images (1.jpg to 30.jpg)
-  const imageSequence = Array.from({ length: 30 }, (_, i) => `/images/${i + 1}.jpg`);
+  // Generate array of 30 tennis court images
+  const tennisCourtImages = Array.from({ length: 30 }, (_, i) => `/images/${i + 1}.jpg`);
 
   return (
     <div className="min-h-screen">
-      {/* Scroll progress bar */}
-      <ScrollProgressBar />
-      {/* Hero section */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold mb-4">Canvas Parallax Animation</h1>
-          <p className="text-xl text-gray-300 mb-8">Scroll down to see the smooth 60fps animation</p>
-          <div className="animate-bounce">
-            <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
-      </section>
+      {/* Scroll-triggered hero section with mountain */}
+      <ScrollHeroSection />
 
-      {/* Canvas-based scroll image sequence */}
-      <CanvasScrollImageSequence 
-        images={imageSequence} 
+      {/* Tennis court scroll sequence */}
+      <CanvasScrollImageSequence
+        images={tennisCourtImages}
         containerHeight={4000}
         textTriggerFrame={26}
       />
 
-      {/* Footer section */}
-      <section className="h-screen flex items-center justify-center bg-gray-100">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Animation Complete!</h2>
-          <p className="text-gray-600">Scroll up to see the reverse effect</p>
+      {/* Content section after tennis sequence */}
+      <section className="relative z-10 h-screen flex items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900 text-white">
+        <div className="text-center max-w-4xl mx-auto px-4">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6">
+            Test Text          </h2>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            test test test eihfpoewihfp pqeihfpeihg peihg 
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors">
+              test text
+            </button>
+            <button className="px-8 py-3 border border-white hover:bg-white hover:text-slate-900 rounded-lg font-semibold transition-colors">
+              test text
+            </button>
+          </div>
         </div>
       </section>
     </div>
